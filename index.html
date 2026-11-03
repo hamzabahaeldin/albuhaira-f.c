@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#092c20">
+
+<title>البحيرة | المنصة الرياضية الرسمية</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --green: #0b3827;
+    --green2: #14563b;
+    --gold: #d5b46a;
+    --light: #f4f6f3;
+    --dark: #14231c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    background: var(--green);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px #0002;
+}
+
+.topbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.brand h1 {
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.brand p {
+    color: var(--gold);
+    font-size: 11px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    background: linear-gradient(110deg, #092c20, #176143);
+    color: white;
+    padding: 65px 20px;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero h2 {
+    font-size: clamp(30px, 5vw, 54px);
+    line-height: 1.5;
+    font-weight: 900;
+}
+
+.hero h2 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: #d2e0d7;
+    line-height: 2;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 370px;
+    height: 290px;
+    object-fit: contain;
+    margin: auto;
+}
+
+.tag {
+    display: inline-block;
+    background: #ffffff17;
+    border: 1px solid #ffffff35;
+    color: var(--gold);
+    padding: 7px 17px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 45px 20px;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: var(--green);
+}
+
+.section-desc {
+    font-size: 13px;
+    color: #77827b;
+    margin-bottom: 25px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #00000008;
+    transition: .3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #00000012;
+}
+
+.news-card img {
+    width: 100%;
+    aspect-ratio: 1200 / 675;
+    object-fit: cover;
+    display: block;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-label {
+    color: #b18c3d;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.news-content h3 {
+    font-size: 19px;
+    margin: 8px 0;
+    color: var(--green);
+}
+
+.news-content p {
+    color: #69746d;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.player {
+    background: white;
+    border-radius: 15px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 5px 20px #00000008;
+}
+
+.player-icon {
+    width: 90px;
+    height: 90px;
+    background: #eaf2eb;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--green);
+    font-size: 37px;
+    flex-shrink: 0;
+}
+
+.player h3 {
+    color: var(--green);
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.player p {
+    color: #66736b;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.matches {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.match-card {
+    background: white;
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0 5px 20px #00000008;
+}
+
+.match-date {
+    color: #9a8658;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.match-teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 22px 0;
+    gap: 10px;
+    text-align: center;
+}
+
+.team-name {
+    font-size: 15px;
+    font-weight: 800;
+    flex: 1;
+}
+
+.score {
+    background: var(--green);
+    color: white;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.win {
+    color: #13834e;
+    font-size: 12px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.goal-info {
+    border-top: 1px solid #eee;
+    padding-top: 13px;
+    margin-top: 15px;
+    font-size: 13px;
+    line-height: 2.1;
+    color: #606d64;
+}
+
+.history {
+    background: var(--green);
+    color: white;
+    border-radius: 18px;
+    padding: 35px;
+}
+
+.history h3 {
+    font-size: 24px;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.history p {
+    color: #d6e2da;
+    line-height: 2.2;
+    font-size: 14px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.stat {
+    background: #ffffff12;
+    padding: 18px 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    color: var(--gold);
+    font-size: 26px;
+}
+
+.stat span {
+    font-size: 12px;
+    color: #d8e2dc;
+}
+
+.contact {
+    background: #e8eee9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    color: var(--green);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.contact p {
+    font-size: 13px;
+    color: #68766d;
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.contact-links a {
+    background: var(--green);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.contact-links a:hover {
+    background: var(--green2);
+}
+
+footer {
+    background: #071e15;
+    color: #aabbb0;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 12px;
+    line-height: 2;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+@media(max-width: 700px) {
+    .topbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 13px;
+        font-size: 11px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero img {
+        height: 200px;
+    }
+
+    .news-grid,
+    .matches {
+        grid-template-columns: 1fr;
+    }
+
+    .player {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 35px 15px;
+    }
+
+    .history {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="topbar">
+
+        <a href="#home" class="brand">
+            <img src="bbgh.png" alt="شعار فريق البحيرة">
+            <div>
+                <h1>البحيرة</h1>
+                <p>المنصة الرياضية والإخبارية</p>
+            </div>
+        </a>
+
+        <nav>
+            <a href="#home">الرئيسية</a>
+            <a href="#news">الأخبار</a>
+            <a href="#matches">المباريات</a>
+            <a href="#player">نجوم الفريق</a>
+            <a href="#about">عن الفريق</a>
+            <a href="#contact">الإدارة</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div>
+            <span class="tag">منذ عام 1974</span>
+
+            <h2>
+                البحيرة..<br>
+                <span>تاريخ من العطاء</span>
+                وطموح لا يتوقف
+            </h2>
+
+            <p>
+                أهلاً بكم في المنصة الإخبارية لفريق البحيرة لكرة القدم،
+                المصدر الرسمي لمتابعة أخبار الفريق ونتائجه ومبارياته
+                وأبرز نجومه، من قلب قرية اللعوتة حجاج.
+            </p>
+        </div>
+
+        <img src="bbgh.png" alt="شعار البحيرة">
+
+    </div>
+</section>
+
+
+<section class="container" id="news">
+
+    <h2 class="section-title">آخر أخبار البحيرة</h2>
+    <p class="section-desc">تابع أحدث المستجدات والأحداث الرياضية للفريق.</p>
+
+    <div class="news-grid">
+
+        <article class="news-card">
+
+            <img src="buhira.png" alt="أخبار فريق البحيرة">
+
+            <div class="news-content">
+                <span class="news-label">أخبار الفريق</span>
+
+                <h3>البحيرة يواصل حضوره القوي ويحقق انتصاراً جديداً</h3>
+
+                <p>
+                    يواصل فريق البحيرة تقديم مستوياته المميزة،
+                    مؤكداً حضوره التنافسي وروح لاعبيه العالية،
+                    وسط تطلعات جماهيره لمواصلة الانتصارات
+                    وتحقيق المزيد من النتائج الإيجابية.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="news-card">
+
+            <img src="buhira.png" alt="محمد الإمام لاعب البحيرة">
+
+            <div class="news-content">
+                <span class="news-label">نجوم البحيرة</span>
+
+                <h3>محمد الإمام.. مراوغ البحيرة وصاحب اللمسات الساحرة</h3>
+
+                <p>
+                    يلفت محمد الإمام الأنظار بمهاراته الفردية العالية،
+                    وقدرته على المراوغة والتحكم بالكرة في المساحات الضيقة،
+                    في أسلوب يذكّر عشاق كرة القدم بمهارات النجم ليونيل ميسي.
+                    ويُنتظر منه تقديم المزيد مع الفريق.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="news-card">
+
+            <img src="buhira.png" alt="فوز البحيرة">
+
+            <div class="news-content">
+                <span class="news-label">نتائج المباريات</span>
+
+                <h3>البحيرة يحسم مواجهته أمام النهضة بهدف نظيف</h3>
+
+                <p>
+                    حقق فريق البحيرة فوزاً مهماً على حساب فريق النهضة
+                    بنتيجة هدف دون مقابل، في مواجهة شهدت تسجيل يوسف
+                    محمد يوسف هدف الانتصار، بصناعة محمد الإمام.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="news-card">
+
+            <img src="buhira.png" alt="فريق البحيرة">
+
+            <div class="news-content">
+                <span class="news-label">المسيرة الرياضية</span>
+
+                <h3>البحيرة.. اسم رياضي يحمل إرثاً منذ 1974</h3>
+
+                <p>
+                    منذ تأسيسه، ظل فريق البحيرة جزءاً من المشهد الرياضي
+                    في قرية اللعوتة حجاج، مستمراً في حمل اسمه وهويته
+                    الرياضية، وطامحاً إلى مستقبل أكثر إشراقاً.
+                </p>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="container" id="matches">
+
+    <h2 class="section-title">آخر مباريات الفريق</h2>
+
+    <p class="section-desc">
+        سجل النتائج وأبرز تفاصيل المواجهات الأخيرة.
+    </p>
+
+    <div class="matches">
+
+        <div class="match-card">
+
+            <span class="match-date">مواجهة أمام النهضة</span>
+
+            <div class="match-teams">
+
+                <div class="team-name">البحيرة</div>
+
+                <div class="score">1 - 0</div>
+
+                <div class="team-name">النهضة</div>
+
+            </div>
+
+            <div class="win">انتصار البحيرة</div>
+
+            <div class="goal-info">
+                ⚽ مسجل الهدف: يوسف محمد يوسف<br>
+                🎯 صناعة الهدف: محمد الإمام
+            </div>
+
+        </div>
+
+
+        <div class="match-card">
+
+            <span class="match-date">31 أكتوبر - يوم الأحد | أمام الموردة</span>
+
+            <div class="match-teams">
+
+                <div class="team-name">البحيرة</div>
+
+                <div class="score">1 - 0</div>
+
+                <div class="team-name">الموردة</div>
+
+            </div>
+
+            <div class="win">انتصار البحيرة</div>
+
+            <div class="goal-info">
+                ⚽ مسجل الهدف: التنو<br>
+                🎯 صناعة الهدف: عليوه
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container" id="player">
+
+    <h2 class="section-title">نجم تحت الأضواء</h2>
+
+    <p class="section-desc">
+        مواهب البحيرة التي تستحق المتابعة.
+    </p>
+
+    <div class="player">
+
+        <div class="player-icon">⚽</div>
+
+        <div>
+            <h3>محمد الإمام</h3>
+
+            <p>
+                أحد الأسماء التي تستحق المتابعة في صفوف فريق البحيرة.
+                يمتلك محمد الإمام شخصية هجومية ومهارات فردية لافتة،
+                ويتميز بالمراوغة والتحكم بالكرة والقدرة على تجاوز
+                المدافعين في المواجهات الفردية.
+
+                أسلوبه في المراوغة يذكّر الجماهير بلمسات
+                ليونيل ميسي الساحرة، وهو ما جعله اسماً حاضراً
+                في أحاديث محبي الفريق.
+
+                كما سجل بصمته في مواجهة النهضة بصناعة هدف
+                الفوز الذي أحرزه يوسف محمد يوسف.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="container" id="about">
+
+    <div class="history">
+
+        <span class="tag">الهوية والتاريخ</span>
+
+        <h3>حكاية البحيرة منذ 1974</h3>
+
+        <p>
+            تأسس فريق البحيرة لكرة القدم عام 1974،
+            وينتمي إلى قرية اللعوتة حجاج.
+
+            يحمل الفريق تاريخاً رياضياً يمتد لعقود،
+            ويرتبط اسمه بالانتماء والروح الجماعية
+            والشغف بكرة القدم.
+
+            وعلى امتداد مسيرته، ظل البحيرة يمثل اسمه
+            وقريته في الميدان، واضعاً نصب عينيه
+            مواصلة الحضور الرياضي وصناعة جيل جديد
+            من اللاعبين والمواهب.
+        </p>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>1974</strong>
+                <span>سنة التأسيس</span>
+            </div>
+
+            <div class="stat">
+                <strong>البحيرة</strong>
+                <span>اسم الفريق</span>
+            </div>
+
+            <div class="stat">
+                <strong>اللعوتة حجاج</strong>
+                <span>المقر والانتماء</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+    <h2>إدارة فريق البحيرة</h2>
+
+    <p>
+        للاستفسارات والتواصل مع إدارة الفريق،
+        يمكنكم التواصل عبر الأرقام التالية:
+    </p>
+
+    <div class="contact-links">
+
+        <a href="https://wa.me/249963538811" target="_blank">
+            واتساب الإدارة الأول
+        </a>
+
+        <a href="https://wa.me/249919560708" target="_blank">
+            واتساب الإدارة الثاني
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <img src="bbgh.png"
+         alt="شعار البحيرة"
+         style="width:55px;height:55px;object-fit:contain;margin-bottom:10px;">
+
+    <p>
+        © 2026 جميع الحقوق محفوظة
+    </p>
+
+    <p>
+        <strong>فريق البحيرة لكرة القدم</strong>
+    </p>
+
+    <p>
+        من اللعوتة حجاج.. حكاية بدأت عام 1974
+    </p>
+
+</footer>
+
+
+</body>
+</html>
